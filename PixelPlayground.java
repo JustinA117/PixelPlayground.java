@@ -78,7 +78,7 @@ public static Picture grayScale(Picture a){
 
 }
 
-public static Picture mirrorImageHoiz1(Picture p){
+public static Picture mirrorImageHoiz(Picture p){
     /** Mirrors left part of image to the right side 
      * 
      * 
@@ -95,6 +95,31 @@ public static Picture mirrorImageHoiz1(Picture p){
 }
 return newPic; 
 
+}
+public static Picture mirrorImageHor2(Picture p){
+Picture newPic = new Picture (p); // copy p as not to destroy persistent data 
+    Pixel [][] pixels = newPic.getPixels2D(); 
+    for (int r = 0; r <pixels.length; r++)
+    {
+    for (int c =c<pixels[0].length-1; c > pixels[0].length/2; c--)
+    {
+        pixels[c][pixels[0].length-1-r].setColor(pixels[r][c].getColor());
+}
+    } 
+    return newPic; 
+}
+
+public static Picture mirrorImageVer2{
+Picture newPic = new Picture (p); // copy p as not to destroy persistent data 
+    Pixel [][] pixels = newPic.getPixels2D(); 
+    for (int r = 0; r <pixels.length; r++)
+    {
+    for (int c = 0; c<pixels[0].length/2; c++)
+    {
+        pixels[c][pixels[0].length-1-r].setColor(pixels[r][c].getColor());
+}
+    } 
+    return newPic; 
 }
 
 
@@ -119,9 +144,11 @@ beachPicNegate.explore();
 Picture beachPicGrayScale = negatePicture(beachPic);
 beachPicGrayScale.explore();
 
-Picture beachPicMirror = mirrorImageHoiz1(beachPic);
+Picture beachPicMirror = mirrorImageHoiz(beachPic);
 beachPicMirror.explore(); 
+
+Picture beachPicMirrorVert = mirrorImageHor2(beachPic);
+beachPicMirrorVert.explore();
  }
 
 }
-
