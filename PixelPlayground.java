@@ -79,12 +79,21 @@ public static Picture grayScale(Picture a){
 }
 
 public static Picture mirrorImageHoiz1(Picture p){
+    /** Mirrors left part of image to the right side 
+     * 
+     * 
+     */
     Picture newPic = new Picture (p); // copy p as not to destroy persistent data 
     Pixel [][] pixels = newPic.getPixels2D(); 
     for (int r = 0; r <.length; r++)
     {
-    for (int c = 0; c<pixels[0].length; c++)
+    for (int c = 0; c<pixels[0].length/2; c++)
     {
+        pixels[r][pixels[0].length-1-c].setColor(pixels[r][c].getColor());
+
+    }
+    return newPic; 
+    }
 
 }
 
@@ -110,6 +119,8 @@ beachPicNegate.explore();
 Picture beachPicGrayScale = negatePicture(beachPic);
 beachPicGrayScale.explore();
 
+picture beachPicMirror = mirrorImageHoiz1(beachPic);
+beachPicMirror.explore(); 
  }
 
 }
