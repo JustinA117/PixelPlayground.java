@@ -149,6 +149,9 @@ beachPicMirror.explore();
 
 Picture beachPicMirrorVert = mirrorImageHor2(beachPic);
 beachPicMirrorVert.explore();
+
+Picture beachPicMirrorVert2 - mirrorImageVer2(beachpic);
+beachPicMirrorVert2.explore(); 
  }
 
 }
